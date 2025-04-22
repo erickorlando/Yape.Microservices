@@ -19,6 +19,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yape.TransactionService.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yape.TransactionService.Infrastructure", "src\Yape.TransactionService.Infrastructure\Yape.TransactionService.Infrastructure.csproj", "{FCE650DF-4D44-C1F3-7C3D-B84F6F151076}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AntiFraudService", "AntiFraudService", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TransactionService", "TransactionService", "{BA0CF779-C098-484F-8BED-5FBB9396738F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker Compose", "Docker Compose", "{93A60599-B7A4-42BC-89E1-32377FE3DC1E}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +69,16 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C2AD16A-CF01-32F8-15BD-C8D5282EA5D7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{87CF116D-E411-1A11-4896-45E9F28F57A5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{75968373-595A-3DAC-E3B5-ED9CFE69632D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{33D9F5CA-AF72-C4F7-EC6F-9AA338DC4FCC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{4A677AB1-F6CB-F249-A2EB-379373DFBEAE} = {BA0CF779-C098-484F-8BED-5FBB9396738F}
+		{8901F81A-9F5E-DAD7-B980-FA33175B5614} = {BA0CF779-C098-484F-8BED-5FBB9396738F}
+		{F1E97EDD-866D-807B-ADBF-B302F4A07548} = {BA0CF779-C098-484F-8BED-5FBB9396738F}
+		{FCE650DF-4D44-C1F3-7C3D-B84F6F151076} = {BA0CF779-C098-484F-8BED-5FBB9396738F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BBC0712-4267-4EB1-A47C-97CB3FDF4F32}

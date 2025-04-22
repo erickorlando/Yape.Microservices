@@ -1,6 +1,9 @@
-@Yape.TransactionService.API_HostAddress = http://localhost:5025
+@Yape.TransactionService.API_HostAddress = https://localhost:7241
 
-GET {{Yape.TransactionService.API_HostAddress}}/weatherforecast/
+POST {{Yape.TransactionService.API_HostAddress}}/api/Transactions
 Accept: application/json
-
+Content-Type: application/json
+{
+  "amount": 100
+}
 ###
