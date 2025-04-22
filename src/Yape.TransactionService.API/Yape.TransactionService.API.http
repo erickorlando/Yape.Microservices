@@ -4,6 +4,5 @@ POST {{Yape.TransactionService.API_HostAddress}}/api/Transactions
 Accept: application/json
 Content-Type: application/json
 {
-  "amount": 100
+  "amount": 5900.689
 }
-###
