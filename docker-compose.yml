@@ -1,5 +1,5 @@
 services:
-  postgres.transaction:
+  postgres:
     image: postgres:14
     ports:
       - "5432:5432"
@@ -27,6 +27,11 @@ services:
       KAFKA_JMX_PORT: 9991
     ports:
       - 9092:9092
+    healthcheck:
+       test: [ "CMD", "kafka-topics", "--bootstrap-server", "localhost:9092", "--list" ]
+       interval: 10s
+       timeout: 5s
+       retries: 10
   yape.antifraudservice.api:
     image: ${DOCKER_REGISTRY-}yapeantifraudserviceapi
     build:
@@ -35,9 +40,10 @@ services:
     ports:
       - 7000:8080
     environment:
-      - ConnectionStrings__YapeAntiFraudService=Host=postgres.transaction;Port=5432;Username=postgres;Password=postgres;Database=YapeAntiFraudService;Include Error Detail=true
+      - ConnectionStrings__YapeAntiFraudService=Host=postgres;Port=5432;Username=postgres;Password=postgres;Database=YapeAntiFraudService;Include Error Detail=true
     depends_on:
-      - postgres.transaction
+      - postgres
+      - kafka
 
   yape.transactionservice.api:
     image: ${DOCKER_REGISTRY-}yapetransactionserviceapi
@@ -47,7 +53,8 @@ services:
     ports:
       - 8000:8090
     environment:
-      - ConnectionStrings__YapeTransactionService=Host=postgres.transaction;Port=5432;Username=postgres;Password=postgres;Database=YapeTransactionService;Include Error Detail=true
+      - ConnectionStrings__YapeTransactionService=Host=postgres;Port=5432;Username=postgres;Password=postgres;Database=YapeTransactionService;Include Error Detail=true
     depends_on:
-      - postgres.transaction
+      - postgres
+      - kafka
 
