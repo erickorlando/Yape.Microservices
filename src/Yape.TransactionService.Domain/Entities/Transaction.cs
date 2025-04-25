@@ -2,14 +2,11 @@
 
 public class Transaction
 {
-    public Guid Id { get; private set; }
-    public decimal Amount { get; private set; }
-    public DateTime CreatedAt { get; private set; }
-
-    public Transaction(Guid id, decimal amount)
-    {
-        Id = id;
-        Amount = amount;
-        CreatedAt = DateTime.UtcNow;
-    }
+    public Guid TransactionExternalId { get; set; } // Using ExternalId as per requirements 
+    public Guid SourceAccountId { get; set; } 
+    public Guid TargetAccountId { get; set; } 
+    public int TranferTypeId { get; set; }
+    public decimal Value { get; set; }
+    public string Status { get; set; } = null!; // e.g., "pending", "approved", "rejected" 
+    public DateTime CreatedAt { get; set; } 
 }

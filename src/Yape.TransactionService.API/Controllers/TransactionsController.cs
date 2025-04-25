@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Yape.TransactionService.API.Models;
 using Yape.TransactionService.Application.UseCases;
+using Yape.TransactionService.Application.UseCases.CreateTransaction;
 
 namespace Yape.TransactionService.API.Controllers;
 
@@ -7,17 +10,31 @@ namespace Yape.TransactionService.API.Controllers;
 [Route("api/[controller]")]
 public class TransactionsController : ControllerBase
 {
-    private readonly Application.Services.TransactionService _service;
+    private readonly IMediator _mediator;
 
-    public TransactionsController(Application.Services.TransactionService service)
+    public TransactionsController(IMediator mediator)
     {
-        _service = service;
+        _mediator = mediator;
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateTransactionCommand command)
+    public async Task<IActionResult> Create([FromBody] CreateTransactionRequest request)
     {
-        var id = await _service.CreateTransactionAsync(command);
-        return Ok(new { TransactionId = id });
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var command = new CreateTransactionCommand()
+        {
+            SourceAccountId = request.SourceAccountId,
+            TargetAccountId = request.TargetAccountId,
+            TranferTypeId = request.TranferTypeId,
+            Value = request.Value
+        };
+
+        var result = await _mediator.Send(command);
+        
+        return Ok(result);
     }
 }
