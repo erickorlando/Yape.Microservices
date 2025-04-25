@@ -18,4 +18,9 @@ public class TransactionRepository(ApplicationDbContext context) : ITransactionR
         return await context.Set<Transaction>()
             .FirstOrDefaultAsync(t => t.TransactionExternalId == messageTransactionExternalId, cancellationToken);
     }
+
+    public async Task UpdateAsync(CancellationToken cancellationToken = default)
+    {
+         await context.SaveChangesAsync(cancellationToken);
+    }
 }

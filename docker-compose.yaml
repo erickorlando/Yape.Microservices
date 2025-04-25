@@ -22,24 +22,3 @@ services:
       KAFKA_JMX_PORT: 9991
     ports:
       - 9092:9092
-
-  transaction-api:
-    build:
-      context: .
-      dockerfile: src/Yape.TransactionService.API/Dockerfile
-    ports:
-      - "50001:80"
-    depends_on:
-      - kafka
-      - postgres
-        
-  yape.antifraudservice.api:
-    image: yape.antifraudservice.api
-    build:
-      context: .
-      dockerfile: src/Yape.AntiFraudService.API/Dockerfile
-    depends_on:
-      - transaction-api
-    ports:
-      - "50002:80"
-

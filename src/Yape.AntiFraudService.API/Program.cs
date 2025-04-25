@@ -40,4 +40,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 
+await using (var scope = app.Services.CreateAsyncScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AntiFraudDbContext>();
+    await dbContext.Database.MigrateAsync();
+}
+
 app.Run();

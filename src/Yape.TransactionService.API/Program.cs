@@ -41,4 +41,10 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.MapControllers();
 
+await using (var scope = app.Services.CreateAsyncScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    await dbContext.Database.MigrateAsync();
+}
+
 app.Run();

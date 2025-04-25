@@ -18,7 +18,7 @@ public class TransactionUpdatedEventHandler(
         if (transaction != null)
         {
             transaction.Status = message.Status;
-            await transactionRepository.SaveAsync(transaction, cancellationToken);
+            await transactionRepository.UpdateAsync(cancellationToken);
             logger.LogInformation($"Transaction {message.TransactionExternalId} status updated to {message.Status}.");
         }
         else

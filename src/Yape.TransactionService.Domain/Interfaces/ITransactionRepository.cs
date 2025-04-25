@@ -6,4 +6,6 @@ public interface ITransactionRepository
 {
     Task SaveAsync(Transaction transaction, CancellationToken cancellationToken = default);
     Task<Transaction?> GetByExternalIdAsync(Guid messageTransactionExternalId, CancellationToken cancellationToken);
+    
+    Task UpdateAsync(CancellationToken cancellationToken = default);
 }

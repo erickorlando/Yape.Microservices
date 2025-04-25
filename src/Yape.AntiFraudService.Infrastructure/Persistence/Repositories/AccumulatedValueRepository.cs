@@ -20,15 +20,13 @@ public class AccumulatedValueRepository : IAccumulatedValueRepository
 
             // Query the database for the accumulated value for the given account and date
             var accumulatedValueEntity = await _dbContext.AccumulatedValues
-                .AsNoTracking() // Use AsNoTracking if you're only reading the data
+                .AsNoTracking() // 
                 .FirstOrDefaultAsync(av => av.AccountId == accountId && av.Date == dateOnly, cancellationToken);
 
             // Return the TotalValue if found, otherwise return 0
             return accumulatedValueEntity?.TotalValue ?? 0;
         }
 
-        // You might need a method to add or update the accumulated value after a transaction is processed and approved
-        // This could be called from your TransactionCreatedEventHandler after the fraud check
         public async Task UpdateAccumulatedValueForAccountAndDay(Guid accountId, DateTime date, decimal valueToAdd, CancellationToken cancellationToken = default)
         {
              // Ensure we only consider the date part
