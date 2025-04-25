@@ -4,5 +4,8 @@ POST {{Yape.TransactionService.API_HostAddress}}/api/Transactions
 Accept: application/json
 Content-Type: application/json
 {
-  "amount": 5900.689
+    "SourceAccountId": "adb18257-1ec2-6408-b182-571ec2a808cc",
+    "TargetAccountId": "34e8dfc5-653b-4ae1-ffdf-c5653bfae1f3",
+    "TranferTypeId": 1,
+    "Value": 1800
 }

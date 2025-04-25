@@ -25,8 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TransactionService", "Trans
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker Compose", "Docker Compose", "{93A60599-B7A4-42BC-89E1-32377FE3DC1E}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.yaml = docker-compose.yaml
+		docker-compose-example.yaml = docker-compose-example.yaml
 	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +68,10 @@ Global
 		{FCE650DF-4D44-C1F3-7C3D-B84F6F151076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCE650DF-4D44-C1F3-7C3D-B84F6F151076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCE650DF-4D44-C1F3-7C3D-B84F6F151076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{8901F81A-9F5E-DAD7-B980-FA33175B5614} = {BA0CF779-C098-484F-8BED-5FBB9396738F}
 		{F1E97EDD-866D-807B-ADBF-B302F4A07548} = {BA0CF779-C098-484F-8BED-5FBB9396738F}
 		{FCE650DF-4D44-C1F3-7C3D-B84F6F151076} = {BA0CF779-C098-484F-8BED-5FBB9396738F}
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A} = {93A60599-B7A4-42BC-89E1-32377FE3DC1E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BBC0712-4267-4EB1-A47C-97CB3FDF4F32}
