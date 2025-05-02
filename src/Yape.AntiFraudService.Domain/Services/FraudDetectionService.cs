@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Yape.AntiFraudService.Domain.Services;
 
-public class FraudDetectionService
+public class FraudDetectionService : IFraudDetectionService
 {
     private readonly IAccumulatedValueRepository _accumulatedValueRepository;
     private readonly ILogger<FraudDetectionService> _logger;

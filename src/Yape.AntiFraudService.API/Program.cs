@@ -16,11 +16,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHostedService<KafkaConsumerService>();
 
 builder.Services.AddScoped<TransactionCreatedEventHandler>();
-
-builder.Services.AddScoped<FraudDetectionService>(); 
+builder.Services.AddScoped<IFraudDetectionService, FraudDetectionService>();
+builder.Services.AddScoped<IAccumulatedValueRepository, AccumulatedValueRepository>();
 
 builder.Services.AddSingleton<ITransactionStatusProducer, KafkaTransactionStatusProducer>();
-builder.Services.AddScoped<IAccumulatedValueRepository, AccumulatedValueRepository>();
 
 
 builder.Services.AddDbContext<AntiFraudDbContext>(options =>
