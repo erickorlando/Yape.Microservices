@@ -2,7 +2,8 @@
 
 ## Overview
 
-This solution comprises two microservices (AntiFraudService and TransactionService) designed to handle transaction processing and fraud detection. Both services are built using .NET 8.0 and follow the Clean Architecture pattern. Communication between the services is facilitated through Apache Kafka event messaging.
+This solution comprises two microservices (AntiFraudService and TransactionService) designed to handle transaction processing and fraud detection. Both services are built using .NET 8.0 and follow the Clean Architecture pattern. Communication between the services is facilitated through Apache Kafka event messaging. 
+The solution is containerized using Docker and Docker Compose, allowing for easy deployment and management of the services.
 
 ## Architecture
 
@@ -16,6 +17,8 @@ Both microservices implement Clean Architecture, which:
     - **Domain**: Core business logic
     - **Application**: Use cases and orchestration
     - **Infrastructure**: External dependencies (databases, messaging, etc.)
+    - **Presentation**: API layer for handling HTTP requests
+    - **Unit Tests**: Each microservice includes unit tests for the domain and application layers, ensuring that business logic is thoroughly tested.
 
 ### AntiFraudService
 
@@ -41,6 +44,7 @@ The TransactionService handles:
 - **Messaging**: Apache Kafka
 - **Containerization**: Docker and Docker Compose
 - **Orchestration**: Docker Compose for local development
+- **Testing**: xUnit for unit and integration tests
 
 ## Communication Flow
 
